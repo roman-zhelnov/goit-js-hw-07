@@ -22,5 +22,32 @@ const images = [
   {
     url: "https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843_1280.jpg",
     alt: "Lighthouse Coast Sea",
-  }
+  },
 ];
+
+const galleryImg = document.querySelector("ul.gallery");
+
+const createGalleryImages = (images) =>
+  images
+    .map(
+      (item) =>
+        `<li>
+      <img src=${item.url} alt=${item.alt} width=300/>
+    </li>\n`
+    )
+    .join("");
+
+const galleryImages = createGalleryImages(images);
+console.log(galleryImages);
+galleryImg.insertAdjacentHTML("beforeend", galleryImages);
+// const createGalleryImages = (images) =>
+//   images.map((item) => {
+//     const imgEl = document.createElement("img");
+//     imgEl.url = item.url;
+//     imgEl.alt = item.alt;
+//     imgEl.width = 300;
+//     return imgEl;
+//   });
+// const galleryImages = createGalleryImages(images);
+// console.log(galleryImages);
+// galleryImg.append(...galleryImages);
