@@ -12,14 +12,16 @@ const boxes = document.querySelector("#boxes");
 
 function createBoxes(amount) {
   boxes.innerHTML = "";
-  for (let i = 0; i < amount; i++) {
+  const divElements = document.createDocumentFragment();
+  for (let i = 0; i < amount; i += 1) {
     const div = document.createElement("div");
     const size = 30 + i * 10;
     div.style.width = `${size}px`;
     div.style.height = `${size}px`;
     div.style.backgroundColor = getRandomHexColor();
-    boxes.append(div);
+    divElements.append(div);
   }
+  boxes.append(divElements);
 }
 
 buttonCreate.addEventListener("click", madeButtonCreate);
